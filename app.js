@@ -1,5 +1,6 @@
 var SerialPort = require("serialport");
-var serialport = new SerialPort("COM3", {baudRate: 57600});
+//var serialport = new SerialPort("COM3", {baudRate: 57600});
+var serialport = new SerialPort("/dev/tty.usbserial-A50285BI", {baudRate: 57600});
 var fs = require("fs");
 
 var counter = 0;
@@ -22,7 +23,7 @@ var test2 = 0;
 i=0;
  function send () {
     setTimeout(function() { 
-        serialport.write(i.toString()+'                                                      \n', function(err) {
+        serialport.write(i.toString()+' \n', function(err) {
             if (err) {
                 return console.log('Error on write: ', err.message);
                 }
