@@ -6,7 +6,7 @@ Solar power remote camera personal project
 - Orange LRS transceiver (https://hobbyking.com/en_us/orangerx-open-lrs-433mhz-transmitter-100mw-compatible-with-futaba-radio.html)
 	- Arduino (mini)
 	- RFM22 transceiver module
-		- datasheet (https://www.sparkfun.com/datasheets/Wireless/General/RFM22.PDF)
+		- datasheet (https://www.sparkfun.com/datasheets/Wirel	ess/General/RFM22.PDF)
 	- (possible replacement) NRF24 transceiver
 		- antenna range extension mod (https://www.instructables.com/id/Enhanced-NRF24L01/)
 - Raspberry Pi
