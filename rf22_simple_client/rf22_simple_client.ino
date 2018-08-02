@@ -26,7 +26,7 @@ uint8_t endFlag[] = "done-boi";
 void setup() 
 {
   spi.setPins(9, 8, 7);
-  Serial.begin(115200);
+  Serial.begin(57600);
   if (!rf22.init())
     Serial.println("init failed");
   // Defaults after init are 434.0MHz, 0.05MHz AFC pull-in, modulation FSK_Rb2_4Fd36
@@ -67,7 +67,7 @@ void loop()
         rf22.waitPacketSent();  // EXPERIMENT TO SEE IF B4 is better     
       } else {
         txMode = false;
-        Serial.println("send Fail during tx");
+        //Serial.println("send Fail during tx");
       }
     }
   }
@@ -80,17 +80,17 @@ void loop()
       uint8_t len = sizeof(mybuf);  // 
       if (rf22.recv(mybuf, &len)){
         Serial.write(mybuf, len);
-        Serial.println("----"); // for debug
+        //Serial.println("----"); // for debug
   //      Serial.println(rf22.lastRssi(), DEC);
       } else {
-        Serial.println("recv failed");
+        //Serial.println("recv failed");
       }
 
       // if incoming message is "done-boi", turn of receive mode
       if(len == 8){
         if(mybuf[0] == 'd' && mybuf[1]=='o' && mybuf[2]=='n' && mybuf[3]=='e' && mybuf[4]=='-'){
           rxMode = false;
-          Serial.println("tx end detected");
+          //Serial.println("tx end detected");
         }
       }
       
@@ -105,18 +105,18 @@ void loop()
     if (rf22.recv(mybuf, &len))
     {
       Serial.write(mybuf, len);
-      Serial.println("--------");
+      //Serial.println("--------");
       if(len == 8){
         if(mybuf[0] == 's' && mybuf[1]=='e' && mybuf[2]=='n' && mybuf[3]=='d' && mybuf[4]=='-'){
           rxMode = true;
-          Serial.println("rx start detected");
+          //Serial.println("rx start detected");
         }
       }
 //      Serial.println(rf22.lastRssi(), DEC);
     }
     else
     {
-      Serial.println("recv failed");
+      //Serial.println("recv failed");
     }
   } else {
     uint8_t msgSize = Serial.available(); // get the number of bytes coming in 
@@ -132,7 +132,7 @@ void loop()
       if(msgSize == 8){
         if(sendBuf[0] == 's' && sendBuf[1]=='e' && sendBuf[2]=='n' && sendBuf[3]=='d' && sendBuf[4]=='-'){
           txMode = true;
-          Serial.println("tx start detected");
+          //Serial.println("tx start detected");
         }
       }
 
@@ -142,7 +142,7 @@ void loop()
         rf22.waitPacketSent();  // EXPERIMENT TO SEE IF B4 is better     
       } else {
         txMode = false;
-        Serial.println("send Fail from idle");
+        //Serial.println("send Fail from idle");
       }
     }
   }
