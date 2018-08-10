@@ -15,6 +15,8 @@ Solar power remote camera personal project
 	- need power calculations (setup draw and panel output)
 
 
+![the link should be here](https://c1.staticflickr.com/9/8050/8449935217_1c4ba62779_b.jpg)
+![the link should be here](http://www.hobbytronics.co.uk/image/data/tutorial/arduino-hardcore/atmega328-tqfp-arduino-pinout.jpg)
 
 ## Software
 
